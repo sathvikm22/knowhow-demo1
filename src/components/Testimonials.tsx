@@ -55,7 +55,7 @@ const Testimonials = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Our Studio Gallery
           </h2>
-          <div className="w-24 h-1 bg-pink-500 mx-auto mb-4"></div>
+          <div className="w-20 h-1 bg-pink-500 mx-auto mb-4"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Take a glimpse into our vibrant creative spaces where artistry comes to life
           </p>

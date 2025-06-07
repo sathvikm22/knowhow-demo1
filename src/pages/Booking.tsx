@@ -30,9 +30,7 @@ const Booking = () => {
 
   const paymentMethods = [
     { id: 'card', name: 'Credit/Debit Card', icon: CreditCard },
-    { id: 'upi', name: 'UPI', icon: QrCode },
-    { id: 'phonepe', name: 'PhonePe', icon: Smartphone },
-    { id: 'googlepay', name: 'Google Pay', icon: Smartphone }
+    { id: 'upi', name: 'UPI', icon: QrCode }
   ];
 
   const rooms = [
@@ -220,7 +218,7 @@ const Booking = () => {
                   <span className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mr-3 text-sm font-bold">4</span>
                   Select Workshop Room
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {rooms.map((room) => (
                     <div
                       key={room.id}
@@ -231,51 +229,49 @@ const Booking = () => {
                           : 'border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-400 bg-white dark:bg-gray-700'
                       }`}
                     >
-                      {/* Room Visual Representation */}
-                      <div className="mb-4 h-24 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg relative overflow-hidden">
-                        {/* Tables and chairs visualization */}
-                        <div className="absolute inset-2 flex items-center justify-center">
-                          {room.id === 'collaborative' ? (
-                            <div className="grid grid-cols-2 gap-1">
-                              {[...Array(3)].map((_, i) => (
-                                <div key={i} className="flex items-center space-x-1">
-                                  <div className="w-3 h-2 bg-amber-400 dark:bg-amber-500 rounded-sm"></div>
-                                  <div className="w-1 h-1 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
-                                  <div className="w-1 h-1 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
-                                </div>
-                              ))}
-                            </div>
-                          ) : (
-                            <div className="flex items-center space-x-1">
-                              <div className="w-4 h-3 bg-amber-400 dark:bg-amber-500 rounded-sm"></div>
-                              <div className="grid grid-cols-2 gap-0.5">
-                                {[...Array(4)].map((_, i) => (
-                                  <div key={i} className="w-1 h-1 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                        <div className="absolute top-2 right-2">
-                          <Users className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      {/* Room Image - Increased height significantly */}
+                      <div className="mb-6 h-80 rounded-lg relative overflow-hidden bg-gray-100 dark:bg-gray-600">
+                        {room.id === 'intimate' && (
+                          <img 
+                            src="/lovable-uploads/Intimate%20Studio.png" 
+                            alt="Intimate Studio" 
+                            className="w-full h-full object-cover" 
+                          />
+                        )}
+                        {room.id === 'collaborative' && (
+                          <img 
+                            src="/lovable-uploads/Collaborative%20Space.png" 
+                            alt="Collaborative Space" 
+                            className="w-full h-full object-cover" 
+                          />
+                        )}
+                        {room.id === 'standard' && (
+                          <img 
+                            src="/lovable-uploads/Standard%20Workshop.png" 
+                            alt="Standard Workshop" 
+                            className="w-full h-full object-cover" 
+                          />
+                        )}
+                        <div className="absolute top-3 right-3 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg">
+                          <Users className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                         </div>
                       </div>
                       
                       <div className="text-center">
-                        <h3 className="font-bold text-gray-800 dark:text-white mb-1">{room.name}</h3>
-                        <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mb-2">{room.capacity}</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">{room.description}</p>
+                        <h3 className="font-bold text-xl text-gray-800 dark:text-white mb-3">{room.name}</h3>
+                        <p className="text-base text-orange-600 dark:text-orange-400 font-semibold mb-4">{room.capacity}</p>
+                        <p className="text-base text-gray-600 dark:text-gray-300 mb-5">{room.description}</p>
                         
-                        <div className="space-y-1 mb-3">
+                        <div className="space-y-3 mb-6">
                           {room.features.map((feature, index) => (
-                            <div key={index} className="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                              <div className="w-1 h-1 bg-green-500 dark:bg-green-400 rounded-full mr-2"></div>
+                            <div key={index} className="flex items-center text-base text-gray-500 dark:text-gray-400 justify-center">
+                              <div className="w-2.5 h-2.5 bg-green-500 dark:bg-green-400 rounded-full mr-3"></div>
                               {feature}
                             </div>
                           ))}
                         </div>
                         
-                        <div className="text-lg font-bold text-orange-600 dark:text-orange-400">
+                        <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
                           {room.price === 0 ? 'Free' : `+₹${room.price}`}
                         </div>
                       </div>
