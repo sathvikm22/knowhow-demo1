@@ -230,26 +230,26 @@ const Booking = () => {
                       }`}
                     >
                       {/* Room Image - Increased height significantly */}
-                      <div className="mb-6 h-80 rounded-lg relative overflow-hidden bg-gray-100 dark:bg-gray-600">
+                      <div className="mb-6 h-70 rounded-lg relative overflow-hidden bg-gray-100 dark:bg-gray-600">
                         {room.id === 'intimate' && (
                           <img 
                             src="/lovable-uploads/Intimate%20Studio.png" 
                             alt="Intimate Studio" 
-                            className="w-full h-full object-cover" 
+                            className="w-full h-full object-contain" 
                           />
                         )}
                         {room.id === 'collaborative' && (
                           <img 
                             src="/lovable-uploads/Collaborative%20Space.png" 
                             alt="Collaborative Space" 
-                            className="w-full h-full object-cover" 
+                            className="w-full h-full object-contain" 
                           />
                         )}
                         {room.id === 'standard' && (
                           <img 
                             src="/lovable-uploads/Standard%20Workshop.png" 
                             alt="Standard Workshop" 
-                            className="w-full h-full object-cover" 
+                            className="w-full h-full object-contain" 
                           />
                         )}
                         <div className="absolute top-3 right-3 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg">
